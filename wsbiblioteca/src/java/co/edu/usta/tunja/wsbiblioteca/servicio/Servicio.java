@@ -38,12 +38,10 @@ public class Servicio {
         objLibro.setEdicion(edicion);
         objLibro.setAnio(anio);
 
-        this._ejbLibro.grabar(objLibro);
-
-        if (objLibro.getNombrelibro() != null) {
+        if (objLibro.getNombrelibro().isEmpty()) {
             return false;
         }
-
+        this._ejbLibro.grabar(objLibro);
         return true;
     }
 
@@ -57,31 +55,32 @@ public class Servicio {
         return false;
 
     }
-    
+
     @WebMethod
-    public boolean editarLibro(@WebParam(name="codigo") int codigo,@WebParam (name="nombre")String nombre,@WebParam(name="autor") String autor,@WebParam (name="edicion") String edicion,@WebParam(name="año")Date anio){
-        Libro objLibro=_ejbLibro.buscar(codigo);
+    public boolean editarLibro(@WebParam(name = "codigo") int codigo, @WebParam(name = "nombre") String nombre, @WebParam(name = "autor") String autor, @WebParam(name = "edicion") String edicion, @WebParam(name = "año") Date anio) {
+        Libro objLibro = _ejbLibro.buscar(codigo);
         objLibro.setNombrelibro(nombre);
         objLibro.setEdicion(edicion);
         objLibro.setAutor(autor);
         objLibro.setAnio(anio);
-        
-        if (codigo!=0) {
+
+        if (codigo != 0) {
             _ejbLibro.actulizar(objLibro);
             return true;
         }
-       return false;
-        
+        return false;
+
     }
+
     @WebMethod
-    public boolean borrarLibro (@WebParam(name = "codigo")int codigo){
-        
-        Libro objLibro=_ejbLibro.buscar(codigo);
-        if (codigo!=0) {
+    public boolean borrarLibro(@WebParam(name = "codigo") int codigo) {
+
+        Libro objLibro = _ejbLibro.buscar(codigo);
+        if (codigo != 0) {
             _ejbLibro.borrar(objLibro);
             return true;
         }
         return false;
-        
+
     }
 }
