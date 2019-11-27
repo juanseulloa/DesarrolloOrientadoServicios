@@ -7,7 +7,6 @@ package co.edu.usta.tunja.wsbiblioteca.entity;
 
 import java.io.Serializable;
 import java.util.Collection;
-import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -19,8 +18,6 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -35,32 +32,29 @@ public class Libro implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-   
+    
     @Column(name = "idlibro")
     private Integer idlibro;
    
-    
     @NotNull
     @Size(min = 1, max = 100)
     @Column(name = "nombrelibro")
     private String nombrelibro;
-    
-    
+   
     @NotNull
     @Size(min = 1, max = 100)
     @Column(name = "edicion")
     private String edicion;
-    
-    
+   
     @NotNull
     @Size(min = 1, max = 100)
     @Column(name = "autor")
     private String autor;
     
     @NotNull
+    @Size(min = 1, max = 100)
     @Column(name = "anio")
-    @Temporal(TemporalType.DATE)
-    private Date anio;
+    private String anio;
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idlibro")
     private Collection<Prestamo> prestamoCollection;
@@ -72,7 +66,7 @@ public class Libro implements Serializable {
         this.idlibro = idlibro;
     }
 
-    public Libro(Integer idlibro, String nombrelibro, String edicion, String autor, Date anio) {
+    public Libro(Integer idlibro, String nombrelibro, String edicion, String autor, String anio) {
         this.idlibro = idlibro;
         this.nombrelibro = nombrelibro;
         this.edicion = edicion;
@@ -112,11 +106,11 @@ public class Libro implements Serializable {
         this.autor = autor;
     }
 
-    public Date getAnio() {
+    public String getAnio() {
         return anio;
     }
 
-    public void setAnio(Date anio) {
+    public void setAnio(String anio) {
         this.anio = anio;
     }
 
@@ -128,9 +122,5 @@ public class Libro implements Serializable {
         this.prestamoCollection = prestamoCollection;
     }
 
- 
-
-
-    
     
 }

@@ -32,8 +32,7 @@ public class Persona implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    
-    
+   
     @Column(name = "idestudiante")
     private Integer idestudiante;
     
@@ -57,6 +56,7 @@ public class Persona implements Serializable {
     @Column(name = "documento")
     private String documento;
     
+    
     @NotNull
     @Size(min = 1, max = 100)
     @Column(name = "email")
@@ -66,7 +66,6 @@ public class Persona implements Serializable {
     @Size(min = 1, max = 300)
     @Column(name = "dependencia")
     private String dependencia;
-    
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idestudiante")
     private Collection<Prestamo> prestamoCollection;
 

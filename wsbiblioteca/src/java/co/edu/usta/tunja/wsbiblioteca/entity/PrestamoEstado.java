@@ -6,7 +6,6 @@
 package co.edu.usta.tunja.wsbiblioteca.entity;
 
 import java.io.Serializable;
-import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -18,9 +17,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
  *
@@ -28,21 +26,20 @@ import javax.validation.constraints.NotNull;
  */
 @Entity
 @Table(name = "prestamo_estado")
-
 public class PrestamoEstado implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
+    
     @Column(name = "idprestamoestado")
     private Integer idprestamoestado;
-
+    
     @NotNull
+    @Size(min = 1, max = 100)
     @Column(name = "hora")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date hora;
-
+    private String hora;
+    
     @JoinColumn(name = "idestado", referencedColumnName = "idestado")
     @ManyToOne(optional = false)
     private Estado idestado;
@@ -57,7 +54,7 @@ public class PrestamoEstado implements Serializable {
         this.idprestamoestado = idprestamoestado;
     }
 
-    public PrestamoEstado(Integer idprestamoestado, Date hora) {
+    public PrestamoEstado(Integer idprestamoestado, String hora) {
         this.idprestamoestado = idprestamoestado;
         this.hora = hora;
     }
@@ -70,11 +67,11 @@ public class PrestamoEstado implements Serializable {
         this.idprestamoestado = idprestamoestado;
     }
 
-    public Date getHora() {
+    public String getHora() {
         return hora;
     }
 
-    public void setHora(Date hora) {
+    public void setHora(String hora) {
         this.hora = hora;
     }
 
@@ -94,5 +91,5 @@ public class PrestamoEstado implements Serializable {
         this.idprestamo = idprestamo;
     }
 
-    
+ 
 }

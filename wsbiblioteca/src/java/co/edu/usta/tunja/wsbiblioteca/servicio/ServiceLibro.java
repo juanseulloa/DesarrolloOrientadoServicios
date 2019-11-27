@@ -30,7 +30,7 @@ public class ServiceLibro {
     private LibroFacade _ejbLibro;
 
     @WebMethod
-    public String createLibro(@WebParam(name = "nombre") String nombre, @WebParam(name = "autor") String autor, @WebParam(name = "edicion") String edicion, @WebParam(name = "año") Date anio) {
+    public String createLibro(@WebParam(name = "nombre") String nombre, @WebParam(name = "autor") String autor, @WebParam(name = "edicion") String edicion, @WebParam(name = "año") String anio) {
         String resultado;
         Libro objLibro = new Libro();
         objLibro.setNombrelibro(nombre);
@@ -59,7 +59,7 @@ public class ServiceLibro {
     }
     
     @WebMethod
-    public boolean editarLibro(@WebParam(name="codigo") int codigo,@WebParam (name="nombre")String nombre,@WebParam(name="autor") String autor,@WebParam (name="edicion") String edicion,@WebParam(name="año")Date anio){
+    public boolean editarLibro(@WebParam(name="codigo") int codigo,@WebParam (name="nombre")String nombre,@WebParam(name="autor") String autor,@WebParam (name="edicion") String edicion,@WebParam(name="año")String anio){
         Libro objLibro=_ejbLibro.buscar(codigo);
         objLibro.setNombrelibro(nombre);
         objLibro.setEdicion(edicion);

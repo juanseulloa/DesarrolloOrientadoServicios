@@ -37,12 +37,12 @@ public class Estado implements Serializable {
     
     @Column(name = "idestado")
     private Integer idestado;
-    @NotNull
     
+    
+    @NotNull
     @Size(min = 1, max = 20)
     @Column(name = "tipoestado")
     private String tipoestado;
-    
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idestado")
     private Collection<PrestamoEstado> prestamoEstadoCollection;
@@ -82,6 +82,4 @@ public class Estado implements Serializable {
     public void setPrestamoEstadoCollection(Collection<PrestamoEstado> prestamoEstadoCollection) {
         this.prestamoEstadoCollection = prestamoEstadoCollection;
     }
-
-    
 }

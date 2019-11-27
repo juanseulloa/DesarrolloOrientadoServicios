@@ -8,7 +8,6 @@ package co.edu.usta.tunja.wsbiblioteca.servicio;
 import co.edu.usta.tunja.wsbiblioteca.ejb.LibroFacade;
 import co.edu.usta.tunja.wsbiblioteca.entity.Libro;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import javax.annotation.Resource;
 import javax.ejb.EJB;
@@ -29,35 +28,34 @@ public class Servicio {
     @EJB
     private LibroFacade _ejbLibro;
 
-    @WebMethod
-    public boolean createLibro(@WebParam(name = "nombre") String nombre, @WebParam(name = "autor") String autor, @WebParam(name = "edicion") String edicion, @WebParam(name = "año") Date anio) {
-
+  @WebMethod(operationName = "crearLibro")
+    public boolean crearLibro(@WebParam(name = "nombre") String nombre, @WebParam(name = "autor") String autor, @WebParam(name = "edicion") String edicion, @WebParam(name = "anios") String anio) {
         Libro objLibro = new Libro();
         objLibro.setNombrelibro(nombre);
         objLibro.setAutor(autor);
         objLibro.setEdicion(edicion);
         objLibro.setAnio(anio);
-
+         
         if (objLibro.getNombrelibro().isEmpty()) {
             return false;
         }
         this._ejbLibro.grabar(objLibro);
         return true;
     }
-
+ 
     @WebMethod
-    public boolean listarLibro() {
+    public List<Libro>listarLibro() {
         List<Libro> libros = new ArrayList<>();
         libros = this._ejbLibro.listar();
         if (this._ejbLibro.listar().size() > 0) {
-            return true;
+           return libros;
         }
-        return false;
+        return libros;
 
     }
 
-    @WebMethod
-    public boolean editarLibro(@WebParam(name = "codigo") int codigo, @WebParam(name = "nombre") String nombre, @WebParam(name = "autor") String autor, @WebParam(name = "edicion") String edicion, @WebParam(name = "año") Date anio) {
+    @WebMethod(operationName = "editarLibro")
+    public boolean editarLibro(@WebParam(name = "codigo") int codigo, @WebParam(name = "nombre") String nombre, @WebParam(name = "autor") String autor, @WebParam(name = "edicion") String edicion, @WebParam(name = "anios") String anio) {
         Libro objLibro = _ejbLibro.buscar(codigo);
         objLibro.setNombrelibro(nombre);
         objLibro.setEdicion(edicion);
