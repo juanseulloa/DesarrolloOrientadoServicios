@@ -1,160 +1,210 @@
-<!doctype html>
+<?php
+require_once '../config/loader.php';
+
+use Module\Cliente;
+?>
 <html class="no-js" lang="zxx">
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Biblioteca</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Biblioteca</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- <link rel="manifest" href="site.webmanifest"> -->
-    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
-    <!-- Place favicon.ico in the root directory -->
+        <!-- <link rel="manifest" href="site.webmanifest"> -->
+        <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
+        <!-- Place favicon.ico in the root directory -->
 
-    <!-- CSS here -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/magnific-popup.css">
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/themify-icons.css">
-    <link rel="stylesheet" href="css/nice-select.css">
-    <link rel="stylesheet" href="css/flaticon.css">
-    <link rel="stylesheet" href="css/gijgo.css">
-    <link rel="stylesheet" href="css/animate.css">
-    <link rel="stylesheet" href="css/slicknav.css">
-    <link rel="stylesheet" href="css/style.css">
-    <!-- <link rel="stylesheet" href="css/responsive.css"> -->
-</head>
+        <!-- CSS here -->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/owl.carousel.min.css">
+        <link rel="stylesheet" href="css/magnific-popup.css">
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/themify-icons.css">
+        <link rel="stylesheet" href="css/nice-select.css">
+        <link rel="stylesheet" href="css/flaticon.css">
+        <link rel="stylesheet" href="css/gijgo.css">
+        <link rel="stylesheet" href="css/animate.css">
+        <link rel="stylesheet" href="css/slicknav.css">
+        <link rel="stylesheet" href="css/style.css">
+        <!-- <link rel="stylesheet" href="css/responsive.css"> -->
+    </head>
 
-<body>
+    <body>
 
-<!-- header-start -->
-<header>
-    <div class="header-area ">
-        <div id="sticky-header" class="main-header-area">
-            <div class="container-fluid p-0">
-                <div class="row align-items-center no-gutters">
-                    <div class="col-xl-2 col-lg-2">
-                        <div class="logo-img">
-                            <a href="index.php">
-                                <img src="img/logo.png" alt="">
-                            </a>
+        <!-- header-start -->
+        <header>
+            <div class="header-area ">
+                <div id="sticky-header" class="main-header-area">
+                    <div class="container-fluid p-0">
+                        <div class="row align-items-center no-gutters">
+                            <div class="col-xl-2 col-lg-2">
+                                <div class="logo-img">
+                                    <a href="index.php">
+                                        <img src="img/logo.png" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-xl-7 col-lg-7">
+                                <div class="main-menu  d-none d-lg-block">
+                                    <nav>
+                                        <ul id="navigation">
+                                            <li><a class="active" href="index.php">Inicio</a></li>
+                                            <li><a href="#"></a></li>
+                                            <li><a href="Libro.php">Libros</a></li>
+                                            <li><a href="Prestamo.php">Prestamo</a></li>
+                                            <li><a href="#"></a></li>
+                                            <li><a href="Usuario.php">Usuarios</a></li>
+
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <div class="mobile_menu d-block d-lg-none"></div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-xl-7 col-lg-7">
-                        <div class="main-menu  d-none d-lg-block">
-                            <nav>
-                                <ul id="navigation">
-                                    <li><a class="active" href="index.php">Inicio</a></li>
-                                    <li><a href="#"></a></li>
-                                    <li><a href="Libro.php">Libros</a></li>
-                                    <li><a href="Prestamo.php">Prestamo</a></li>
-                                    <li><a href="#"></a></li>
-                                    <li><a href="Usuario.php">Usuarios</a></li>
-
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
-
-                    <div class="col-12">
-                        <div class="mobile_menu d-block d-lg-none"></div>
                     </div>
                 </div>
             </div>
+        </header>
+        <!-- header-end -->
+        <!-- bradcam_area_start -->
+
+        <div class="courses_details_banner">
+            <div class="container">
+                <div>
+                    <div class="col-md container-fluid">
+                        <h1 class="col-md " style="color: #ffffff" align="left">Agregar Libro</h1>
+                    </div>
+                    </br>
+                    </br>
+                    </br>
+                    <form name="formularioLibro" method="post" action="../module/ClienteLibro.php">
+                        <div class="col-md  row">
+                            <label class="form-group col-md-4"><h2 style="color:#ffffff;"> Nombre Libro:</h2></label>
+                            <input style="border-radius: 20px" class="form-control col-md-4" type="text" id="nombrelib" name="nombrelib"
+                                   placeholder="Nombre del Libro">
+                        </div>
+                        </br>
+                        <div class="col-md row">
+                            <label  class="form-group col-md-4"><h2 style="color:#ffffff;"> Autor:</h2></label>
+                            <input style="border-radius: 20px" class="form-control col-md-4" type="text" value=""
+                                   name="autor" id="autor" placeholder="Autor del Libro">
+                        </div>
+                        </br>
+                        <div class="col-md row">
+                            <label class="form-group col-md-4"><h2 style="color:#ffffff;"> Edicion:</h2></label>
+                            <input style="border-radius: 20px" class="form-control col-md-4" type="text" value=""
+                                   name="edicion" id="edicion"  placeholder="Edicionn del Libro">
+                        </div>
+                        </br>
+                        <div class="col-md row">
+                            <label class="form-group col-md-4"><h2 style="color:#ffffff;"> Año:</h2></label>
+                            <input type="date" style="border-radius: 20px" name="anio" min="1000-01-01"
+                                   max="3000-12-31" class="form-control col-md-4" value="" placeholder="Selecione">
+                        </div>
+                        </br>
+                        </br>
+                        <div class="col-md-6 container-fluid">
+                            <button style="width: 200px;border-radius: 200px" type="submit"class="btn badge-success"> Guardar</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
         </div>
-    </div>
-</header>
-<!-- header-end -->
-<!-- bradcam_area_start -->
-
-<div class="courses_details_banner">
-    <div class="container">
-        <div>
-            <div class="col-md container-fluid">
-                <h1 class="col-md " style="color: #ffffff" align="left">Agregar Libro</h1>
-            </div>
-            </br>
-            </br>
-            </br>
-            <div class="col-md  row">
-                <label class="form-group col-md-4"><h2 style="color:#ffffff;"> Nombre Libro:</h2></label>
-                <input style="border-radius: 20px" class="form-control col-md-4" type="text" value=""
-                       placeholder="Nombre del Libro">
-            </div>
-            </br>
-            <div class="col-md row">
-                <label  class="form-group col-md-4"><h2 style="color:#ffffff;"> Autor:</h2></label>
-                <input style="border-radius: 20px" class="form-control col-md-4" type="text" value=""
-                       placeholder="Autor del Libro">
-            </div>
-            </br>
-            <div class="col-md row">
-                <label class="form-group col-md-4"><h2 style="color:#ffffff;"> Edicion:</h2></label>
-                <input style="border-radius: 20px" class="form-control col-md-4" type="text" value=""
-                       placeholder="Edicionn del Libro">
-            </div>
-            </br>
-            <div class="col-md row">
-                <label class="form-group col-md-4"><h2 style="color:#ffffff;"> Año:</h2></label>
-                <input style="border-radius: 20px" class="form-control col-md-4" type="text" value="" placeholder="Año Publicacion  Libro">
-            </div>
-            </br>
-            </br>
-            <div class="col-md-6 container-fluid">
-                <button style="width: 200px;border-radius: 200px" class="btn badge-success"> Guardar</button>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- bradcam_area_end -->
-
-</div>
-<!-- bradcam_area_end -->
-
-<!-- popular_courses_start -->
-<div class="popular_courses plus_padding">
-    <div class="container">
-        <div class="col-md-4">
-            <h1>Libros</h1>
-        </div>
-        </br>
-        </br>
-        </br>
-        <div>
-            <table class="table col-md">
-                <thead class="table-bordered table-active">
-                <tr>
-
-                    <th scope="col-2">Codigo</th>
-                    <th scope="col-3">Nombre Libro</th>
-                    <th scope="col-2">Autor</th>
-                    <th scope="col-2">Edicion</th>
-                    <th scope="col-1">Año</th>
-                    <th scope="col-2">Estado</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-
-                    <td>111111</td>
-                    <td>Otto</td>
-                    <td>********</td>
-                    <td>ocupado</td>
-                    <td>ocupado</td>
-                    <td>ocupado</td>
-                </tr>
-
-                </tbody>
-            </table>
-
-
-        </div>
-
+        <!-- bradcam_area_end -->
 
     </div>
-</div>
+    <!-- bradcam_area_end -->
+
+    <!-- popular_courses_start -->
+    <div class="popular_courses plus_padding">
+        <div class="container">
+            <div class="col-md-4">
+                <h1>Libros</h1>
+            </div>
+            </br>
+            </br>
+            </br>
+            <?php
+            $objCliente = new Cliente();
+            $records = array();
+            $resp = $objCliente->getall();
+
+            if (empty($resp)) {
+                ?>
+                <div class="alert alert-warning alert-dismissible fade show">
+                    <strong>Advertencia</strong> <br/>
+                    dady, no hay nada, no encotre nada.
+                    <button type="button"m class="close" data-dismiss="alert">
+                        <span>X</span>
+                    </button>
+                </div>
+
+                <?php
+            } else {
+                ?>
+                <div>
+                    <table class="table col-md">
+                        <thead class="table-bordered table-active">
+                            <tr>
+
+                                <th scope="col-2">Codigo</th>
+                                <th scope="col-3">Nombre Libro</th>
+                                <th scope="col-2">Autor</th>
+                                <th scope="col-2">Edicion</th>
+                                <th scope="col-1">Año</th>
+
+                            </tr>
+                        </thead>
+                        <tbody style="border: #0069d9">
+                            <?php
+                            $xhtml = "";
+                            foreach ($resp as $clave1) {
+                                $xhtml .= "<tr>";
+                                foreach ($clave1 as $clave2) {
+                                    foreach ($clave2 as $valor1 => $contenido) {
+
+                                        if ($valor1 == 'idlibro') {
+                                            $idlibro = $contenido;
+                                        } elseif ($valor1 == 'nombrelibro') {
+                                            $nombrelibro = $contenido;
+                                        } elseif ($valor1 == 'autor') {
+                                            $autors = $contenido;
+                                        } elseif ($valor1 == 'edicion') {
+                                            $edicions = $contenido;
+                                        } elseif ($valor1 == 'anio') {
+                                            $anios = $contenido;
+                                        }
+                                    }
+                                    $xhtml .= "<td> " . $idlibro . " </td>";
+                                    $xhtml .= "<td>" . $nombrelibro . "</td>";
+                                    $xhtml .= "<td>" . $autors . "</td>";
+                                    $xhtml .= "<td>" . $edicions . "</td>";
+                                    $xhtml .= "<td>" . $anios . "</td>";
+                                    $xhtml .= "</tr>";
+                                }
+                            }
+
+                            echo $xhtml;
+                            ?>
+
+                        </tbody>
+                    </table>
+
+
+                </div>
+    <?php
+}
+?>
+
+
+        </div>
+    </div>
     </br>
     </br>
     </br>
@@ -167,151 +217,194 @@
     <!-- subscribe_newsletter_Start -->
     <div class="subscribe_newsletter">
         <div class="container">
+            <div class="col-md container-fluid">
+                <h1 class="col-md " style="color: #ffffff" align="left">Editar Libro</h1>
+            </div>
+            </br>
+            </br>
+            </br>
+            <form name="formularioActualizar" method="post" action="../module/ClienteActualizar.php">
+                 <div class="col-md  row">
+                    <label class="form-group col-md-4"><h2 style="color:#ffffff;"> Codigo:</h2></label>
+                    <input style="border-radius: 20px" class="form-control col-md-4" type="text" id="codEd" name="codEd"
+                           placeholder="Codigo Libro">
+                </div>
+                </br>
+                <div class="col-md  row">
+                    <label class="form-group col-md-4"><h2 style="color:#ffffff;"> Nombre Libro:</h2></label>
+                    <input style="border-radius: 20px" class="form-control col-md-4" type="text" id="nombreEd" name="nombreEd"
+                           placeholder="Nombre del Libro">
+                </div>
+                </br>
+                <div class="col-md row">
+                    <label  class="form-group col-md-4"><h2 style="color:#ffffff;"> Autor:</h2></label>
+                    <input style="border-radius: 20px" class="form-control col-md-4" type="text" value=""
+                           name="autorEd" id="autorEd" placeholder="Autor del Libro">
+                </div>
+                </br>
+                <div class="col-md row">
+                    <label class="form-group col-md-4"><h2 style="color:#ffffff;"> Edicion:</h2></label>
+                    <input style="border-radius: 20px" class="form-control col-md-4" type="text" value=""
+                           name="edicionEd" id="edicionEd"  placeholder="Edicionn del Libro">
+                </div>
+                </br>
+                <div class="col-md row">
+                    <label class="form-group col-md-4"><h2 style="color:#ffffff;"> Año:</h2></label>
+                    <input type="date" style="border-radius: 20px" name="anioEd" min="1000-01-01"
+                           max="3000-12-31" class="form-control col-md-4" value="" placeholder="Selecione">
+                </div>
+                </br>
+                </br>
+                <div class="col-md-6 container-fluid">
+                    <button style="width: 200px;border-radius: 200px" type="submit"class="btn badge-success"> Guardar</button>
+                </div>
+
+            </form>
 
         </div>
     </div>
     <!-- subscribe_newsletter_end -->
 
-<!-- our_latest_blog_start -->
-<div class="our_latest_blog">
-    <div class="container">
-        <div class="row">
-            <div class="col-xl-12">
-                <div class="section_title text-center mb-100">
-                    <h3>Biblioteca</h3>
+    <!-- our_latest_blog_start -->
+    <div class="our_latest_blog">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="section_title text-center mb-100">
+                        <h3>Biblioteca</h3>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-xl-4 col-md-4">
-                <div class="single_latest_blog">
-                    <div class="thumb">
-                        <img src="img/latest_blog/1.png" alt="">
-                    </div>
-                    <div class="content_blog">
-                        <div class="date">
-                            <p>26 Nob, 2019  <a href="#">Design tips</a></p>
+            <div class="row">
+                <div class="col-xl-4 col-md-4">
+                    <div class="single_latest_blog">
+                        <div class="thumb">
+                            <img src="img/latest_blog/1.png" alt="">
                         </div>
+                        <div class="content_blog">
+                            <div class="date">
+                                <p>26 Nob, 2019  <a href="#">Design tips</a></p>
+                            </div>
 
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-4 col-md-4">
-                <div class="single_latest_blog">
-                    <div class="thumb">
-                        <img src="img/latest_blog/2.png" alt="">
-                    </div>
-                    <div class="content_blog">
-                        <div class="date">
-                            <p>12 Jun, 2019 in <a href="#">Design tips</a></p>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-xl-4 col-md-4">
-                <div class="single_latest_blog">
-                    <div class="thumb">
-                        <img src="img/latest_blog/3.png" alt="">
+                <div class="col-xl-4 col-md-4">
+                    <div class="single_latest_blog">
+                        <div class="thumb">
+                            <img src="img/latest_blog/2.png" alt="">
+                        </div>
+                        <div class="content_blog">
+                            <div class="date">
+                                <p>12 Jun, 2019 in <a href="#">Design tips</a></p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="content_blog">
-                        <div class="date">
-                            <p>12 Jun, 2019 in <a href="#">Design tips</a></p>
+                </div>
+                <div class="col-xl-4 col-md-4">
+                    <div class="single_latest_blog">
+                        <div class="thumb">
+                            <img src="img/latest_blog/3.png" alt="">
+                        </div>
+                        <div class="content_blog">
+                            <div class="date">
+                                <p>12 Jun, 2019 in <a href="#">Design tips</a></p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<!-- our_latest_blog_end -->
+    <!-- our_latest_blog_end -->
 
 
-<!-- footer -->
-<footer class="footer footer_bg_1">
-    <div class="footer_top">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-4 col-md-6 col-lg-4">
-                    <div class="footer_widget">
-                        <div class="footer_logo">
-                            <a href="#">
-                                <img src="img/logo.png" alt="">
-                            </a>
+    <!-- footer -->
+    <footer class="footer footer_bg_1">
+        <div class="footer_top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-4 col-md-6 col-lg-4">
+                        <div class="footer_widget">
+                            <div class="footer_logo">
+                                <a href="#">
+                                    <img src="img/logo.png" alt="">
+                                </a>
+                            </div>
+
+                            <div class="socail_links">
+                                <ul>
+                                    <li>
+                                        <a href="#">
+                                            <i class="ti-facebook"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="ti-twitter-alt"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-instagram"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-youtube-play"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
                         </div>
-
-                        <div class="socail_links">
+                    </div>
+                    <div class="col-xl-2 offset-xl-1 col-md-6 col-lg-3">
+                        <div class="footer_widget">
+                            <h3 class="footer_title">
+                                libros
+                            </h3>
                             <ul>
-                                <li>
-                                    <a href="#">
-                                        <i class="ti-facebook"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="ti-twitter-alt"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-instagram"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-youtube-play"></i>
-                                    </a>
-                                </li>
+                                <li><a href="#">Wordpress</a></li>
+                                <li><a href="#"> Photoshop</a></li>
+                                <li><a href="#">Illustrator</a></li>
+                                <li><a href="#">Adobe XD</a></li>
+                                <li><a href="#">UI/UX</a></li>
                             </ul>
+
                         </div>
+                    </div>
 
+                    <div class="col-xl-3 col-md-6 col-lg-3">
+                        <div class="footer_widget">
+                            <h3 class="footer_title">
+                                Direccion
+                            </h3>
+                            <p>
+                                200, D-block, Green lane USA <br>
+                                edumark@contact.com
+                            </p>
+                        </div>
                     </div>
                 </div>
-                <div class="col-xl-2 offset-xl-1 col-md-6 col-lg-3">
-                    <div class="footer_widget">
-                        <h3 class="footer_title">
-                            libros
-                        </h3>
-                        <ul>
-                            <li><a href="#">Wordpress</a></li>
-                            <li><a href="#"> Photoshop</a></li>
-                            <li><a href="#">Illustrator</a></li>
-                            <li><a href="#">Adobe XD</a></li>
-                            <li><a href="#">UI/UX</a></li>
-                        </ul>
-
-                    </div>
-                </div>
-
-                <div class="col-xl-3 col-md-6 col-lg-3">
-                    <div class="footer_widget">
-                        <h3 class="footer_title">
-                            Direccion
-                        </h3>
-                        <p>
-                            200, D-block, Green lane USA <br>
-                            edumark@contact.com
+            </div>
+        </div>
+        <div class="copy-right_text">
+            <div class="container">
+                <div class="footer_border"></div>
+                <div class="row">
+                    <div class="col-xl-12">
+                        <p class="copy_right text-center">
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            Universidad Santo Tomas &copy;<script>document.write(new Date().getFullYear());</script>
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         </p>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="copy-right_text">
-        <div class="container">
-            <div class="footer_border"></div>
-            <div class="row">
-                <div class="col-xl-12">
-                    <p class="copy_right text-center">
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        Universidad Santo Tomas &copy;<script>document.write(new Date().getFullYear());</script>
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
-<!-- footer -->
+    </footer>
+    <!-- footer -->
 
 
     <!-- form itself end-->

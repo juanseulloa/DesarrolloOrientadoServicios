@@ -83,7 +83,7 @@
                             <h3>Learn of your <br>
                                 Favorite Book <br>
                                 in the Library</h3>
-                            <a href="Libro.html" class="boxed_btn">Libros</a>
+                            <a href="Libro.php" class="boxed_btn">Libros</a>
                         </div>
                     </div>
                 </div>

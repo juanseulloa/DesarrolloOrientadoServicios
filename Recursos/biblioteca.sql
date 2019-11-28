@@ -16,7 +16,7 @@ create table LIBRO (
    NOMBRELIBRO          VARCHAR(100)         not null,
    EDICION              VARCHAR(100)         not null,
    AUTOR                VARCHAR(100)         not null,
-   ANIO                 DATE                 not null,
+   ANIO                 VARCHAR(100)             not null,
    constraint PK_LIBRO primary key (IDLIBRO)
 );
 
@@ -39,8 +39,8 @@ create table PERSONA (
 /*==============================================================*/
 create table PRESTAMO (
    IDPRESTAMO           SERIAL               not null,
-   FECHAPRESTAMO        DATE                 not null,
-   FECHAENTREGA         DATE                 not null,
+   FECHAPRESTAMO        VARCHAR(100)           not null,
+   FECHAENTREGA         VARCHAR(100)           not null,
    IDLIBRO              INT4                 not null,
    IDESTUDIANTE         INT4                 not null,
    constraint PK_PRESTAMO primary key (IDPRESTAMO)
@@ -53,7 +53,7 @@ create table PRESTAMO_ESTADO (
    IDPRESTAMOESTADO     SERIAL               not null,
    IDESTADO             INT4                 not null,
    IDPRESTAMO           INT4                 not null,
-   HORA                 TIMESTAMP            not null,
+   HORA                 VARCHAR(100)            not null,
    constraint PK_PRESTAMO_ESTADO primary key (IDPRESTAMOESTADO)
 );
 
